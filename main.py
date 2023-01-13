@@ -2,6 +2,11 @@ from devices import DeviceType, device_manager
 import logger
 from datetime import datetime
 import time
+from ifttt_webhook import IftttWebhook
+
+IFTTT_KEY = "dwNuZAYpSIjYRxBvRYmm0T"
+
+ifttt = IftttWebhook(IFTTT_KEY)
 
 def startup():
    print("booting up...")
@@ -23,6 +28,7 @@ def startup():
          washer_on = False
          # Since the washer was deactivated after it was on, it means it's finished.
          logger.addWashingMachineEntry(dryerAtTime, time.mktime(datetime.timetuple()))
+         ifttt.trigger("washer_finished")
       else:
          washerAtTime = time.mktime(datetime.timetuple())
          washer_on = True
