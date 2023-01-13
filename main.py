@@ -16,7 +16,12 @@ def startup():
       print(washer_on)
       
    def dryer_set():
-      dryer_on = dryer.is_held
+      if dryer_on:
+         print("possible end?")
+         dryer_on = False
+         # Since the dryer was deactivated after it was on, it means it's finished.
+
+
       print(dryer_on)
    
    # when held or deactivated set the variables to the correct value
