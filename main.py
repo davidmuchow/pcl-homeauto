@@ -3,6 +3,7 @@ from time import sleep
 
 def startup():
    print("booting up...")
+
    devices = device_manager()
    washer = devices.get(DeviceType.WASHING_VIBRATION)
    dryer = devices.get(DeviceType.DRYING_VIBRATION)
@@ -18,6 +19,7 @@ def startup():
       dryer_on = dryer.is_held
       print(dryer_on)
    
+   # when held or deactivated set the variables to the correct value
    washer.when_held = washer_set()
    dryer.when_held = dryer_set()
    
@@ -25,10 +27,6 @@ def startup():
    dryer.when_deactivated = dryer_set()
    
    
-   
-   
-      
-
 
 if __name__ == "__main__":
    startup()
