@@ -10,37 +10,25 @@ def startup():
    washer_on = False
    dryer_on = False
    
-   washer_count = 0
-   dryer_count = 0
+   def washer_set():
+      washer_on = washer.is_held
+      print(washer_on)
+      
+   def dryer_set():
+      dryer_on = dryer.is_held
+      print(dryer_on)
    
-   print("setup complete!")
-   # set up 20ms refresh time to look for values
-   while True:
-      washer_read = True if washer.value == 0 else False
-      dryer_read = True if dryer.value == 0 else False
-      
-      if washer_read:
-         washer_count += 1
-         if washer_count > 2000: # 2 seconds of vibration -> might increase
-            print("washer has vibrated for two seconds straight")
-            # assume it is actually on and activate
-            washer_on = True
-      else:
-         washer_count = 0
-         
-      if dryer_read:
-         dryer_count += 1
-         if washer_count > 2000: # 2 seconds of vibration -> might increase
-            print("washer has vibrated for two seconds straight")
-            # assume it is actually on and activate
-            dryer_on = True
-      else:
-         dryer_count = 0  
-      
-      # sleeps 20ms
-      sleep(.02)
-      
+   washer.when_held = washer_set()
+   dryer.when_held = dryer_set()
    
+   washer.when_deactivated = washer_set()
+   dryer.when_deactivated = dryer_set()
+   
+   
+   
+   
+      
+
 
 if __name__ == "__main__":
-    startup()
+   startup()
