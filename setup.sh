@@ -13,7 +13,7 @@ cd ~/python3
 wget https://www.python.org/ftp/python/$RELEASE/Python-$RELEASE.tar.xz
 tar xvf Python-$RELEASE.tar.xz
 cd Python-$RELEASE
-./configure --enable-optimizations --enable-shared
+./configure --enable-shared
 make
 sudo make altinstall
 sudo ldconfig
