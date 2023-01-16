@@ -20,9 +20,6 @@ def addWashingMachineEntry(start, end):
 
 def addDryingMachineEntry(start, end):
     rn = datetime.isoformat(date.today())
-    cur.execute(f"""
-        INSERT INTO washer VALUES
-            ('{rn}','{start}','{end}')
-    """)
+    cur.execute(f"INSERT INTO washer VALUES('{rn}','{start}','{end}')")
 
     con.commit()
