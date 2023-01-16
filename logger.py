@@ -14,10 +14,7 @@ def init():
 
 def addWashingMachineEntry(start, end):
     rn = datetime.now().second
-    cur.execute(f"""
-        INSERT INTO washer VALUES
-            ('{rn}','{start}','{end}')
-    """)
+    cur.execute(f"INSERT INTO washer VALUES('{rn}','{start}','{end}')")
 
     con.commit()
 
