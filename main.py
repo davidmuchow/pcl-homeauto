@@ -1,5 +1,5 @@
 from devices import DeviceType, device_manager
-import logger
+# import logger
 from datetime import datetime
 import time
 from ifttt_webhook import IftttWebhook
@@ -11,7 +11,7 @@ ifttt = IftttWebhook(IFTTT_KEY)
 def startup():
    print("booting up...")
 
-   logger.init()
+   # logger.init()
 
    devices = device_manager()
    washer = devices.get(DeviceType.WASHING_VIBRATION)
@@ -27,7 +27,7 @@ def startup():
          print("possible end?")
          washer_on = False
          # Since the washer was deactivated after it was on, it means it's finished.
-         logger.addWashingMachineEntry(dryerAtTime, time.mktime(datetime.timetuple()))
+         # logger.addWashingMachineEntry(dryerAtTime, time.mktime(datetime.timetuple()))
          ifttt.trigger("washer_finished")
       else:
          washerAtTime = time.mktime(datetime.timetuple())
@@ -38,7 +38,7 @@ def startup():
          print("possible end?")
          dryer_on = False
          # Since the dryer was deactivated after it was on, it means it's finished.
-         logger.addDryingMachineEntry(dryerAtTime, time.mktime(datetime.timetuple()))
+         # logger.addDryingMachineEntry(dryerAtTime, time.mktime(datetime.timetuple()))
       else:
          dryerAtTime = time.mktime(datetime.timetuple())
          dryer_on = True
