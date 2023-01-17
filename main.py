@@ -3,6 +3,7 @@ from devices import DeviceType, device_manager
 from datetime import datetime
 import time
 from ifttt_webhook import IftttWebhook
+from signal import pause
 
 IFTTT_KEY = "dwNuZAYpSIjYRxBvRYmm0T"
 
@@ -54,7 +55,7 @@ def startup():
    washer.when_deactivated = washer_set
    dryer.when_deactivated = dryer_set
    
-   
+   pause()
 
 if __name__ == "__main__":
    startup()
