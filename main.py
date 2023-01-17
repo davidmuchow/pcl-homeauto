@@ -66,6 +66,7 @@ MPU_Init()
 print (" Reading Data of Gyroscope and Accelerometer")
 
 activated = False
+led = gpio.LED(5)
 
 while True:
 	
@@ -93,9 +94,13 @@ while True:
 
    if abs(Az) - .4 > 0 and not activated:
       activated = True
+      led.on()
       print("machine activate")
+
+   if not activated:
+      led.off()
    
-   sleep(10)
+   sleep(3)
 
 def startup():
    print("booting up...")
