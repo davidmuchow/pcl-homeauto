@@ -3,8 +3,8 @@ from enum import Enum
 
 class device_manager:    
     def __init__(self):
-        self.washing_sensor = gpio.Button(1, bounce_time=5)
-        self.drying_sensor = gpio.Button(2, bounce_time=5)
+        self.washing_sensor = gpio.Button(17, bounce_time=5)
+        self.drying_sensor = gpio.Button(27, bounce_time=5)
         
         # determines how long the sensor should vibrate
         # before registering that it is the washing machine that is on
