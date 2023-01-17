@@ -1,4 +1,3 @@
-from devices import DeviceType, device_manager
 import time
 # import logger
 from datetime import datetime
