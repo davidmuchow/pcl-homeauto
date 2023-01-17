@@ -35,12 +35,14 @@ def startup():
       global washer_on, washerAtTime
       if washer_on:
          print("possible end?")
+         led.on()
          washer_on = False
          # Since the washer was deactivated after it was on, it means it's finished.
          # logger.addWashingMachineEntry(dryerAtTime, time.mktime(datetime.timetuple()))
          ifttt.trigger("washer_finished")
       else:
          washerAtTime = time.time()
+         led.off()
          washer_on = True
       
    def dryer_set():

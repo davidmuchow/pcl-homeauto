@@ -15,7 +15,7 @@ class device_manager:
         self.devicelist = {
             DeviceType.WASHING_VIBRATION: self.washing_sensor,
             DeviceType.DRYING_VIBRATION: self.drying_sensor,
-            DeviceType.STARTUP_LED: self.startup_led
+            DeviceType.STARTUP_LED: self.startup_led,
         }
         
     def get(self, enu):
