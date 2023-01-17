@@ -1,3 +1,4 @@
+import shlex
 from devices import DeviceType, device_manager
 # import logger
 from datetime import datetime
@@ -66,7 +67,7 @@ def startup():
    #dryer.when_deactivated = dryer_set
 
    def sayHello():
-      print("test")
+      print("yo")
 
    washer.when_activated = sayHello
 
