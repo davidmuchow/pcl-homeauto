@@ -30,7 +30,7 @@ def startup():
          # logger.addWashingMachineEntry(dryerAtTime, time.mktime(datetime.timetuple()))
          ifttt.trigger("washer_finished")
       else:
-         washerAtTime = time.mktime(datetime.timetuple())
+         washerAtTime = time.time()
          washer_on = True
       
    def dryer_set(dryer_on, dryerAtTime):
@@ -40,7 +40,7 @@ def startup():
          # Since the dryer was deactivated after it was on, it means it's finished.
          # logger.addDryingMachineEntry(dryerAtTime, time.mktime(datetime.timetuple()))
       else:
-         dryerAtTime = time.mktime(datetime.timetuple())
+         dryerAtTime = time.time()
          dryer_on = True
    
    # when held or deactivated set the variables to the correct value
