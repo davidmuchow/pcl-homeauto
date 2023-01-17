@@ -6,7 +6,7 @@ class device_manager:
         self.washing_sensor = gpio.SmoothedInputDevice(27)
         self.drying_sensor = gpio.SmoothedInputDevice(5)
         self.startup_led = gpio.LED(22)
-        
+
         self.devicelist = {
             DeviceType.WASHING_VIBRATION: self.washing_sensor,
             DeviceType.DRYING_VIBRATION: self.drying_sensor,
