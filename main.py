@@ -64,7 +64,7 @@ def startup():
    #dryer.when_deactivated = dryer_set
 
    while True:
-      print(washer.value)
+      print(washer.is_active)
    
    pause()
 
