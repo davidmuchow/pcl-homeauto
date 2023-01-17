@@ -1,9 +1,8 @@
-import shlex
 from devices import DeviceType, device_manager
+import time
 # import logger
 from datetime import datetime
 import smbus2
-import time
 import gpiozero as gpio
 from time import sleep
 from ifttt_webhook import IftttWebhook
@@ -12,6 +11,8 @@ from signal import pause
 IFTTT_KEY = "dwNuZAYpSIjYRxBvRYmm0T"
 
 ifttt = IftttWebhook(IFTTT_KEY)
+
+start_time = int(time.time())
 
 #some MPU6050 Registers and their Address
 PWR_MGMT_1   = 0x6B
@@ -86,7 +87,7 @@ while True:
 	Gz = gyro_z/131.0
 	
 
-	print ("Gx=%.2f" %Gx, u'\u00b0'+ "/s", "\tGy=%.2f" %Gy, u'\u00b0'+ "/s", "\tGz=%.2f" %Gz, u'\u00b0'+ "/s", "\tAx=%.2f g" %Ax, "\tAy=%.2f g" %Ay, "\tAz=%.2f g" %Az) 	
+	print ("Gx=%.2f" %Gx, u'\u00b0'+ "/s", "\tGy=%.2f" %Gy, u'\u00b0'+ "/s", "\tGz=%.2f" %Gz, u'\u00b0'+ "/s", "\tAx=%.2f g" %Ax, "\tAy=%.2f g" %Ay, "\tAz=%.2f g" %Az, "dT =" %int(time.time()) - start_time) 	
 	sleep(10)
 
 def startup():
