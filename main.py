@@ -63,6 +63,8 @@ def startup():
    #washer.when_deactivated = washer_set
    #dryer.when_deactivated = dryer_set
 
+   print("test")
+
    while True:
       sleep(.05)
       if washer.is_active:
