@@ -70,7 +70,5 @@ def startup():
       else:
          print("nuh")
    
-   pause()
-
 if __name__ == "__main__":
    startup()
