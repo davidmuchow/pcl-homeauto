@@ -4,7 +4,7 @@ from enum import Enum
 class device_manager:    
     def __init__(self):
         self.washing_sensor = gpio.Button(27, bounce_time=.3)
-        self.drying_sensor = gpio.Button(5, bounce_time=.3)
+        self.drying_sensor = gpio.Button(5, bounce_time=.3, pull_up=True)
         self.startup_led = gpio.LED(22)
         
         # determines how long the sensor should vibrate
