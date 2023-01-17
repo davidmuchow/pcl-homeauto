@@ -57,11 +57,14 @@ def startup():
          dryer_on = True
    
    # when held or deactivated set the variables to the correct value
-   washer.when_held = washer_set
-   dryer.when_held = dryer_set
+   #washer.when_held = washer_set
+   #dryer.when_held = dryer_set
    
-   washer.when_deactivated = washer_set
-   dryer.when_deactivated = dryer_set
+   #washer.when_deactivated = washer_set
+   #dryer.when_deactivated = dryer_set
+
+   while True:
+      print(washer.value)
    
    pause()
 
