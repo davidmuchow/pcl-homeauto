@@ -5,6 +5,7 @@ class device_manager:
     def __init__(self):
         self.washing_sensor = gpio.Button(17, bounce_time=.3)
         self.drying_sensor = gpio.Button(27, bounce_time=.3)
+        self.startup_led = gpio.LED(22)
         
         # determines how long the sensor should vibrate
         # before registering that it is the washing machine that is on
@@ -14,6 +15,7 @@ class device_manager:
         self.devicelist = {
             DeviceType.WASHING_VIBRATION: self.washing_sensor,
             DeviceType.DRYING_VIBRATION: self.drying_sensor,
+            DeviceType.STARTUP_LED: self.startup_led
         }
         
     def get(self, enu):
@@ -23,3 +25,4 @@ class device_manager:
 class DeviceType(Enum):
     WASHING_VIBRATION = 1
     DRYING_VIBRATION = 2
+    STARTUP_LED = 3

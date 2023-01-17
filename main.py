@@ -2,6 +2,7 @@ from devices import DeviceType, device_manager
 # import logger
 from datetime import datetime
 import time
+from time import sleep
 from ifttt_webhook import IftttWebhook
 from signal import pause
 
@@ -17,6 +18,11 @@ def startup():
    devices = device_manager()
    washer = devices.get(DeviceType.WASHING_VIBRATION)
    dryer = devices.get(DeviceType.DRYING_VIBRATION)
+   led = devices.get(DeviceType.STARTUP_LED)
+
+   led.on()
+   sleep(.05)
+   led.off()
    
    global washer_on, washerAtTime, dryer_on, dryerAtTime
 
