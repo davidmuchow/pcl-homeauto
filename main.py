@@ -69,7 +69,7 @@ def startup():
 
    while True:
       sleep(.5)
-      if washer.is_active:
+      if washer.is_active == True:
          print("yuh")
       else:
          print("nuh")
