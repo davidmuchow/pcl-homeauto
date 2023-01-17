@@ -10,7 +10,6 @@ class device_manager:
         self.devicelist = {
             DeviceType.WASHING_VIBRATION: self.washing_sensor,
             DeviceType.DRYING_VIBRATION: self.drying_sensor,
-            DeviceType.STARTUP_LED: self.startup_led,
         }
         
     def get(self, enu):
@@ -20,4 +19,3 @@ class device_manager:
 class DeviceType(Enum):
     WASHING_VIBRATION = 1
     DRYING_VIBRATION = 2
-    STARTUP_LED = 3

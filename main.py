@@ -2,6 +2,7 @@ from devices import DeviceType, device_manager
 # import logger
 from datetime import datetime
 import time
+import gpiozero as gpio
 from time import sleep
 from ifttt_webhook import IftttWebhook
 from signal import pause
@@ -18,7 +19,8 @@ def startup():
    devices = device_manager()
    washer = devices.get(DeviceType.WASHING_VIBRATION)
    dryer = devices.get(DeviceType.DRYING_VIBRATION)
-   led = devices.get(DeviceType.STARTUP_LED)
+   
+   led = gpio.LED(22)
 
    led.on()
    sleep(.05)
@@ -67,7 +69,7 @@ def startup():
 
    while True:
       sleep(.5)
-      if True:
+      if washer.is_active:
          print("yuh")
       else:
          print("nuh")
