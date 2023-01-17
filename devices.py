@@ -3,7 +3,7 @@ from enum import Enum
 
 class device_manager:    
     def __init__(self):
-        self.washing_sensor = gpio.SmoothedInputDevice(27)
+        self.washing_sensor = gpio.SmoothedInputDevice(27, active_state=False)
         self.drying_sensor = gpio.SmoothedInputDevice(5)
 
         self.devicelist = {
