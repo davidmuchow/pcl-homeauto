@@ -69,7 +69,7 @@ def startup():
    def sayHello():
       print("yo")
 
-   washer.when_activated = sayHello
+   washer.is_active = sayHello
 
    pause()
 

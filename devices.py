@@ -3,8 +3,8 @@ from enum import Enum
 
 class device_manager:    
     def __init__(self):
-        self.washing_sensor = gpio.MotionSensor(27)
-        self.drying_sensor = gpio.MotionSensor(5)
+        self.washing_sensor = gpio.InputDevice(27)
+        self.drying_sensor = gpio.InputDevice(5)
 
         self.devicelist = {
             DeviceType.WASHING_VIBRATION: self.washing_sensor,
