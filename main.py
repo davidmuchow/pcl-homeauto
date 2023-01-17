@@ -17,12 +17,15 @@ def startup():
    washer = devices.get(DeviceType.WASHING_VIBRATION)
    dryer = devices.get(DeviceType.DRYING_VIBRATION)
    
+   global washer_on, washerAtTime, dryer_on, dryerAtTime
+
    washer_on = False
    washerAtTime = 0
    dryer_on = False
    dryerAtTime = 0
    
-   def washer_set(washer_on, washerAtTime):
+   def washer_set():
+      global washer_on, washerAtTime
       if washer_on:
          print("possible end?")
          washer_on = False
@@ -33,7 +36,8 @@ def startup():
          washerAtTime = time.time()
          washer_on = True
       
-   def dryer_set(dryer_on, dryerAtTime):
+   def dryer_set():
+      global dryer_on, dryerAtTime
       if dryer_on:
          print("possible end?")
          dryer_on = False
@@ -44,11 +48,11 @@ def startup():
          dryer_on = True
    
    # when held or deactivated set the variables to the correct value
-   washer.when_held = washer_set(washer_on, washerAtTime)
-   dryer.when_held = dryer_set(dryer_on, dryerAtTime)
+   washer.when_held = washer_set
+   dryer.when_held = dryer_set
    
-   washer.when_deactivated = washer_set(washer_on, washerAtTime)
-   dryer.when_deactivated = dryer_set(dryer_on, dryerAtTime)
+   washer.when_deactivated = washer_set
+   dryer.when_deactivated = dryer_set
    
    
 
