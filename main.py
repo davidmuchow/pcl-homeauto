@@ -22,7 +22,7 @@ def startup():
    dryer_on = False
    dryerAtTime = 0
    
-   def washer_set():
+   def washer_set(washer_on, washerAtTime):
       if washer_on:
          print("possible end?")
          washer_on = False
@@ -33,7 +33,7 @@ def startup():
          washerAtTime = time.mktime(datetime.timetuple())
          washer_on = True
       
-   def dryer_set():
+   def dryer_set(dryer_on, dryerAtTime):
       if dryer_on:
          print("possible end?")
          dryer_on = False
@@ -44,11 +44,11 @@ def startup():
          dryer_on = True
    
    # when held or deactivated set the variables to the correct value
-   washer.when_held = washer_set()
-   dryer.when_held = dryer_set()
+   washer.when_held = washer_set(washer_on, washerAtTime)
+   dryer.when_held = dryer_set(dryer_on, dryerAtTime)
    
-   washer.when_deactivated = washer_set()
-   dryer.when_deactivated = dryer_set()
+   washer.when_deactivated = washer_set(washer_on, washerAtTime)
+   dryer.when_deactivated = dryer_set(dryer_on, dryerAtTime)
    
    
 
