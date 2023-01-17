@@ -92,7 +92,7 @@ while True:
    print(int(time.time() - start_time))
    print("Gx=%.2f" %Gx, u'\u00b0'+ "/s", "\tGy=%.2f" %Gy, u'\u00b0'+ "/s", "\tGz=%.2f" %Gz, u'\u00b0'+ "/s", "\tAx=%.2f g" %Ax, "\tAy=%.2f g" %Ay, "\tAz=%.2f g" %Az)
 
-   if abs(Az) - .04 > 0 and not activated:
+   if abs(Az) - .05 > 0 and not activated:
       activated = True
       led.on()
       print("machine activate")
