@@ -1,4 +1,5 @@
 import time
+import matplotlib.pyplot as plt
 # import logger
 from datetime import datetime
 import gpiozero as gpio
@@ -20,21 +21,18 @@ activated = False
 led = gpio.LED(5)
 gyro = gyroscope()
 
+plt.show()
+plt.xlabel("time since " + time.localtime())
+plt.ylabel("gyro z acceleration")
+
 while True:
-	
 	#Read Accelerometer raw value
    acc_x = gyro.read_accel_data(gyro.ACCEL_XOUT_H)
    acc_y = gyro.read_accel_data(gyro.ACCEL_YOUT_H)
    acc_z = gyro.read_accel_data(gyro.ACCEL_ZOUT_H)
 
-   print(int(time.time() - start_time))
-
-   if abs(Az) - .05 > 0 and not activated:
-      activated = True
-      led.on()
-      print("machine activate")
-
-   if not activated:
-      led.off()
+   cur_time = int(time.time() - start_time)
    
-   sleep(3)
+   plt.plot(cur_time, acc_z)
+   
+   sleep(1)
