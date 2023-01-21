@@ -33,6 +33,9 @@ global last_time_on
 last_time_on = time.time()
 
 def animate(i, xs, ys):
+   global washer_on
+   global last_time_on
+   
    # Read temperature (Celsius) from TMP102
    temp_c = max(abs(round(gyro.read_accel_data(gyro.ACCEL_ZOUT_H), 2)) - .035, 0)
 
