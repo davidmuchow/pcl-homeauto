@@ -32,7 +32,8 @@ while True:
    acc_z = gyro.read_accel_data(gyro.ACCEL_ZOUT_H)
 
    cur_time = int(time.time() - start_time)
-   
+
+   print(cur_time + " " + str(acc_z))   
    plt.plot(cur_time, acc_z)
    plt.show()
    sleep(1)
