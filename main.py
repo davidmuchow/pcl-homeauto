@@ -34,5 +34,5 @@ while True:
    cur_time = int(time.time() - start_time)
    
    plt.plot(cur_time, acc_z)
-   
+   plt.show()
    sleep(1)
