@@ -29,7 +29,6 @@ ys = []
 global washer_on
 washer_on = False
 
-global last_time_on
 last_time_on = time.time()
 
 
@@ -41,9 +40,10 @@ def animate(i, xs, ys):
       washer_on = True
       last_time_on = time.time()
 
-   if (time.time() - last_time_on) > 15:
+   if (time.time() - last_time_on) > 15 and washer_on:
       print("off")
       ifttt.trigger("washer_finished")
+      washer_on = False
 
    # Add x and y to lists
    xs.append(datetime.now().strftime('%H:%M:%S.%f'))
