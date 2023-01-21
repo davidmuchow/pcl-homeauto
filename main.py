@@ -22,7 +22,7 @@ led = gpio.LED(5)
 gyro = gyroscope()
 
 plt.show()
-plt.xlabel(str("time since " + time.localtime()))
+plt.xlabel("time since start")
 plt.ylabel("gyro z acceleration")
 
 while True:
