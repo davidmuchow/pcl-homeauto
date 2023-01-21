@@ -33,7 +33,7 @@ while True:
 
    cur_time = int(time.time() - start_time)
 
-   print(cur_time + " " + str(acc_z))   
+   print(str(cur_time) + " " + str(acc_z))   
    plt.plot(cur_time, acc_z)
    plt.show()
    sleep(1)
