@@ -29,7 +29,9 @@ ys = []
 
 def animate(i, xs, ys):
    # Read temperature (Celsius) from TMP102
-   temp_c = round(gyro.read_accel_data(gyro.ACCEL_ZOUT_H), 2)
+   temp_c = min(abs(round(gyro.read_accel_data(gyro.ACCEL_ZOUT_H), 2)) - .03, 0)
+
+
 
    # Add x and y to lists
    xs.append(datetime.now().strftime('%H:%M:%S.%f'))
