@@ -1,5 +1,6 @@
 import time
 import matplotlib.pyplot as plt
+plt.use("gtk")
 # import logger
 from datetime import datetime
 import gpiozero as gpio
