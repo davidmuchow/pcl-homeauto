@@ -1,5 +1,6 @@
 import time
 import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 # import logger
 from datetime import datetime
 import gpiozero as gpio
@@ -21,19 +22,44 @@ activated = False
 led = gpio.LED(5)
 gyro = gyroscope()
 
-plt.ion()
-plt.xlabel("time since start")
-plt.ylabel("gyro z acceleration")
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+xs = []
+ys = []
 
-while True:
-	#Read Accelerometer raw value
-   acc_x = gyro.read_accel_data(gyro.ACCEL_XOUT_H)
-   acc_y = gyro.read_accel_data(gyro.ACCEL_YOUT_H)
-   acc_z = gyro.read_accel_data(gyro.ACCEL_ZOUT_H)
+def animate(i, xs, ys):
+   # Read temperature (Celsius) from TMP102
+   temp_c = round(gyro.read_accel_data(gyro.ACCEL_ZOUT_H), 2)
 
-   cur_time = int(time.time() - start_time)
+   # Add x and y to lists
+   xs.append(datetime.datetime.now().strftime('%H:%M:%S.%f'))
+   ys.append(temp_c)
 
-   print(str(cur_time) + " " + str(acc_z))   
-   plt.plot(cur_time, acc_z)
-   plt.show()
-   sleep(1)
+    # Limit x and y lists to 20 items
+   xs = xs[-20:]
+   ys = ys[-20:]
+
+    # Draw x and y lists
+   ax.clear()
+   ax.plot(xs, ys)
+
+   # Format plot
+   plt.xticks(rotation=45, ha='right')
+   plt.subplots_adjust(bottom=0.30)
+   plt.title('TMP102 Temperature over Time')
+   plt.ylabel('Temperature (deg C)')
+
+ani = animation.FuncAnimation(fig, animate, fargs=(xs, ys), interval=1000)
+plt.show()
+
+# while True:
+# 	#Read Accelerometer raw value
+#    acc_x = gyro.read_accel_data(gyro.ACCEL_XOUT_H)
+#    acc_y = gyro.read_accel_data(gyro.ACCEL_YOUT_H)
+#    acc_z = gyro.read_accel_data(gyro.ACCEL_ZOUT_H)
+
+#    cur_time = int(time.time() - start_time)
+
+#    print(str(cur_time) + " " + str(acc_z))   
+#    plt.plot(cur_time, acc_z)
+#    sleep(1)
