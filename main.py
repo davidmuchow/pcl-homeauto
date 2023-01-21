@@ -29,7 +29,7 @@ ys = []
 
 def animate(i, xs, ys):
    # Read temperature (Celsius) from TMP102
-   temp_c = max(abs(round(gyro.read_accel_data(gyro.ACCEL_ZOUT_H), 2)) - .03, 0)
+   temp_c = max(abs(round(gyro.read_accel_data(gyro.ACCEL_ZOUT_H), 2)) - .035, 0)
 
 
 
