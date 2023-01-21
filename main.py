@@ -26,12 +26,24 @@ fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 xs = []
 ys = []
+global washer_on
+washer_on = False
+
+global last_time_on
+last_time_on = time.time()
+
 
 def animate(i, xs, ys):
    # Read temperature (Celsius) from TMP102
    temp_c = max(abs(round(gyro.read_accel_data(gyro.ACCEL_ZOUT_H), 2)) - .035, 0)
 
+   if temp_c > .03:
+      washer_on = True
+      last_time_on = time.time()
 
+   if (time.time() - last_time_on) > 15:
+      print("off")
+      ifttt.trigger("washer_finished")
 
    # Add x and y to lists
    xs.append(datetime.now().strftime('%H:%M:%S.%f'))
@@ -50,6 +62,7 @@ def animate(i, xs, ys):
    plt.subplots_adjust(bottom=0.30)
    plt.title('Z Gyro')
    plt.ylabel('Acceleration in G')
+
 
 ani = animation.FuncAnimation(fig, animate, fargs=(xs, ys), interval=1000)
 plt.show()
