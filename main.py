@@ -29,8 +29,8 @@ ys = []
 global washer_on
 washer_on = False
 
+global last_time_on
 last_time_on = time.time()
-
 
 def animate(i, xs, ys):
    # Read temperature (Celsius) from TMP102
