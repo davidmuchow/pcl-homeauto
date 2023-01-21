@@ -21,7 +21,7 @@ activated = False
 led = gpio.LED(5)
 gyro = gyroscope()
 
-plt.show()
+plt.ion()
 plt.xlabel("time since start")
 plt.ylabel("gyro z acceleration")
 
