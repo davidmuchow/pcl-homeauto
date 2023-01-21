@@ -32,7 +32,7 @@ def animate(i, xs, ys):
    temp_c = round(gyro.read_accel_data(gyro.ACCEL_ZOUT_H), 2)
 
    # Add x and y to lists
-   xs.append(datetime.datetime.now().strftime('%H:%M:%S.%f'))
+   xs.append(datetime.now().strftime('%H:%M:%S.%f'))
    ys.append(temp_c)
 
     # Limit x and y lists to 20 items
