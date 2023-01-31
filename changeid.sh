@@ -1,4 +1,4 @@
 echo "enter id"
 read id
 
-export iftkey=$id
+export iftkey="$id"
