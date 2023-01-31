@@ -1,3 +1,4 @@
+import os
 import time
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
@@ -9,7 +10,7 @@ from ifttt_webhook import IftttWebhook
 
 from gyroscope import gyroscope
 
-IFTTT_KEY = "dwNuZAYpSIjYRxBvRYmm0T"
+IFTTT_KEY = os.enviorn['iftkey']
 
 ifttt = IftttWebhook(IFTTT_KEY)
 
