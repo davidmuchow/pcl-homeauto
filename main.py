@@ -6,7 +6,6 @@ from datetime import datetime
 import gpiozero as gpio
 from time import sleep
 from ifttt_webhook import IftttWebhook
-from signal import pause
 
 from gyroscope import gyroscope
 
