@@ -10,7 +10,7 @@ from ifttt_webhook import IftttWebhook
 
 from gyroscope import gyroscope
 
-IFTTT_KEY = os.enviorn['iftkey']
+IFTTT_KEY = os.environ['iftkey']
 
 ifttt = IftttWebhook(IFTTT_KEY)
 
